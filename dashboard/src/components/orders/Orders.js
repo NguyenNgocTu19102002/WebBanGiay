@@ -21,16 +21,16 @@ const Orders = (props) => {
       </thead>
       <tbody>
         {orders.map((order) => (
-          <tr key={order._id}>
+          <tr key={order?._id}>
             <td>
-              <b>{order.user.name}</b>
+              <b>{order?.user?.name}</b>
             </td>
-            <td>{order.user.email}</td>
-            <td>${order.totalPrice}</td>
+            <td>{order?.user?.email}</td>
+            <td>${order?.totalPrice}</td>
             <td>
               {order.isPaid ? (
                 <span className="badge rounded-pill alert-success">
-                  Paid At {moment(order.paidAt).format("MMM Do YY")}
+                  Paid At {moment(order?.paidAt).format("MMM Do YY")}
                 </span>
               ) : (
                 <span className="badge rounded-pill alert-danger">
@@ -38,7 +38,7 @@ const Orders = (props) => {
                 </span>
               )}
             </td>
-            <td>{moment(order.createdAt).format("MMM Do YY")}</td>
+            <td>{moment(order?.createdAt).format("MMM Do YY")}</td>
             <td>
               {order.isDelivered ? (
                 <span className="badge btn-success">Delivered</span>
